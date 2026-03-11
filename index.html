@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Doffin Hjelp — Få automatiske varsler fra Doffin rett i innboksen</title>
+<meta name="description" content="Sliter du med å holde oversikt over offentlige anbud på Doffin? Få daglige varsler filtrert på dine søkeord — helt gratis. Fra Forum for offentlige anskaffelser.">
+<meta name="keywords" content="doffin, doffin hjelp, doffin varsler, offentlige anbud, anbud norge, anbudsvarsler, offentlige anskaffelser, leverandør offentlig sektor">
+<link rel="canonical" href="https://doffinhjelp.no/">
+<meta property="og:title" content="Doffin Hjelp — Automatiske anbudsvarsler fra Doffin">
+<meta property="og:description" content="Få daglige varsler om relevante anbud fra Doffin, filtrert på dine søkeord, CPV-koder og oppdragsgivere. Helt gratis. Fra Forum for offentlige anskaffelser.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://doffinhjelp.no/">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy: #0B1D3A;
+  --navy-light: #132d54;
+  --gold: #C5A55A;
+  --gold-light: #d4bc7e;
+  --cream: #FAF8F4;
+  --warm-gray: #6B7280;
+  --light-border: #E5E1D8;
+  --white: #FFFFFF;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--cream);
+  color: var(--navy);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── TOP BAR (FOA) ── */
+.topbar {
+  background: var(--navy);
+  padding: 0.6rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.topbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  text-decoration: none;
+}
+.foa-logo {
+  width: 36px;
+  height: 36px;
+  border: 1.5px solid rgba(255,255,255,0.5);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  font-family: 'DM Serif Display', serif;
+  font-size: 0.75rem;
+  font-style: italic;
+}
+.topbar-text {
+  color: rgba(255,255,255,0.7);
+  font-size: 0.8rem;
+  line-height: 1.3;
+}
+.topbar-text strong {
+  color: var(--white);
+  font-weight: 600;
+  display: block;
+  font-size: 0.85rem;
+}
+.topbar-link {
+  color: var(--gold);
+  font-size: 0.8rem;
+  text-decoration: none;
+  font-weight: 500;
+}
+.topbar-link:hover { text-decoration: underline; }
+
+/* ── HERO ── */
+.hero {
+  background: linear-gradient(160deg, var(--navy) 0%, var(--navy-light) 100%);
+  color: var(--white);
+  padding: 3.5rem 2rem 0;
+  overflow: hidden;
+}
+.hero-grid {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+.hero-content {
+  padding-bottom: 3.5rem;
+}
+.hero-badge {
+  display: inline-block;
+  background: rgba(197,165,90,0.15);
+  color: var(--gold);
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.4rem 1.2rem;
+  border-radius: 50px;
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.03em;
+}
+.hero h1 {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  line-height: 1.2;
+  margin-bottom: 1.2rem;
+}
+.hero h1 em {
+  font-style: normal;
+  color: var(--gold);
+}
+.hero-content > p {
+  font-size: 1.1rem;
+  color: rgba(255,255,255,0.75);
+  margin-bottom: 2rem;
+  max-width: 480px;
+}
+.cta-btn {
+  display: inline-block;
+  background: var(--gold);
+  color: var(--navy);
+  font-weight: 700;
+  font-size: 1.05rem;
+  padding: 0.9rem 2.4rem;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background 0.2s, transform 0.15s;
+}
+.cta-btn:hover {
+  background: var(--gold-light);
+  transform: translateY(-1px);
+}
+.hero-note {
+  margin-top: 1rem;
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.5);
+}
+
+/* ── EMAIL MOCKUP ── */
+.email-mockup {
+  background: var(--white);
+  border-radius: 12px 12px 0 0;
+  box-shadow: 0 -4px 40px rgba(0,0,0,0.3);
+  overflow: hidden;
+  transform: translateY(30px);
+}
+.email-toolbar {
+  background: #f3f3f3;
+  padding: 0.6rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-bottom: 1px solid #e0e0e0;
+}
+.email-dot {
+  width: 10px; height: 10px; border-radius: 50%;
+}
+.email-dot.r { background: #ff5f57; }
+.email-dot.y { background: #febc2e; }
+.email-dot.g { background: #28c840; }
+.email-toolbar span {
+  margin-left: auto;
+  font-size: 0.7rem;
+  color: #999;
+}
+.email-header {
+  padding: 1rem 1.2rem;
+  border-bottom: 1px solid var(--light-border);
+}
+.email-from {
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: var(--navy);
+}
+.email-subject {
+  font-size: 0.8rem;
+  color: var(--warm-gray);
+  margin-top: 0.15rem;
+}
+.email-body {
+  padding: 1rem 1.2rem 1.4rem;
+}
+.email-body h4 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1rem;
+  color: var(--navy);
+  margin-bottom: 0.8rem;
+}
+.email-item {
+  background: var(--cream);
+  border-left: 3px solid var(--gold);
+  padding: 0.6rem 0.8rem;
+  margin-bottom: 0.5rem;
+  border-radius: 0 6px 6px 0;
+}
+.email-item-title {
+  font-weight: 600;
+  font-size: 0.78rem;
+  color: var(--navy);
+  line-height: 1.3;
+}
+.email-item-meta {
+  font-size: 0.7rem;
+  color: var(--warm-gray);
+  margin-top: 0.15rem;
+}
+.email-item-tag {
+  display: inline-block;
+  background: rgba(197,165,90,0.15);
+  color: var(--gold);
+  font-size: 0.6rem;
+  font-weight: 600;
+  padding: 0.1rem 0.5rem;
+  border-radius: 4px;
+  margin-top: 0.25rem;
+}
+
+/* ── TRUST BAR ── */
+.trust-bar {
+  background: var(--white);
+  border-bottom: 1px solid var(--light-border);
+  padding: 1.5rem 2rem;
+  text-align: center;
+}
+.trust-inner {
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+.trust-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--warm-gray);
+  font-size: 0.9rem;
+}
+.trust-icon {
+  font-size: 1.1rem;
+}
+
+/* ── PROBLEM ── */
+.problem {
+  padding: 4rem 2rem;
+  max-width: 820px;
+  margin: 0 auto;
+}
+.problem h2 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.8rem;
+  margin-bottom: 1.2rem;
+  text-align: center;
+}
+.problem p {
+  color: var(--warm-gray);
+  font-size: 1.05rem;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+/* ── FEATURES ── */
+.features {
+  padding: 3rem 2rem 4rem;
+  background: var(--white);
+}
+.features-inner {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+.features h2 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.8rem;
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+.features .subtitle {
+  text-align: center;
+  color: var(--warm-gray);
+  margin-bottom: 2.5rem;
+  font-size: 1.05rem;
+}
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+.feature-card {
+  background: var(--cream);
+  border: 1px solid var(--light-border);
+  border-radius: 14px;
+  padding: 2rem;
+}
+.feature-icon {
+  width: 48px;
+  height: 48px;
+  background: var(--navy);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+}
+.feature-card h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+.feature-card p {
+  color: var(--warm-gray);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* ── HOW IT WORKS ── */
+.how {
+  padding: 4rem 2rem;
+  max-width: 820px;
+  margin: 0 auto;
+}
+.how h2 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.8rem;
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+.steps {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.step {
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
+}
+.step-num {
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  background: var(--gold);
+  color: var(--navy);
+  font-weight: 700;
+  font-size: 1.1rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.step-text h3 {
+  font-size: 1.05rem;
+  margin-bottom: 0.3rem;
+}
+.step-text p {
+  color: var(--warm-gray);
+  font-size: 0.95rem;
+}
+
+/* ── COMPARISON ── */
+.comparison {
+  padding: 4rem 2rem;
+  background: var(--white);
+}
+.comparison-inner {
+  max-width: 700px;
+  margin: 0 auto;
+}
+.comparison h2 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.8rem;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.compare-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+.compare-table th {
+  text-align: left;
+  padding: 0.8rem 1rem;
+  background: var(--navy);
+  color: var(--white);
+  font-weight: 600;
+}
+.compare-table th:first-child { border-radius: 8px 0 0 0; }
+.compare-table th:last-child { border-radius: 0 8px 0 0; }
+.compare-table td {
+  padding: 0.7rem 1rem;
+  border-bottom: 1px solid var(--light-border);
+}
+.compare-table tr:last-child td:first-child { border-radius: 0 0 0 8px; }
+.compare-table tr:last-child td:last-child { border-radius: 0 0 8px 0; }
+.check { color: #2D8F5E; font-weight: 700; }
+.cross { color: #ef4444; }
+
+/* ── CREDIBILITY / BOOK ── */
+.credibility {
+  padding: 4rem 2rem;
+}
+.credibility-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 2.5rem;
+  align-items: center;
+}
+.credibility img {
+  width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+}
+.credibility h2 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.6rem;
+  margin-bottom: 0.8rem;
+}
+.credibility p {
+  color: var(--warm-gray);
+  font-size: 0.95rem;
+  margin-bottom: 0.8rem;
+  line-height: 1.6;
+}
+.credibility .author {
+  font-weight: 600;
+  color: var(--navy);
+  font-size: 0.9rem;
+}
+.cred-link {
+  display: inline-block;
+  margin-top: 0.5rem;
+  color: var(--gold);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+.cred-link:hover { text-decoration: underline; }
+
+/* ── FAQ ── */
+.faq {
+  padding: 4rem 2rem;
+  max-width: 760px;
+  margin: 0 auto;
+}
+.faq h2 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.8rem;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.faq-item {
+  border-bottom: 1px solid var(--light-border);
+  padding: 1.2rem 0;
+}
+.faq-q {
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.faq-q::after {
+  content: '+';
+  font-size: 1.4rem;
+  color: var(--gold);
+  transition: transform 0.2s;
+}
+.faq-item.open .faq-q::after { content: '\2212'; }
+.faq-a {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+  color: var(--warm-gray);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+.faq-item.open .faq-a {
+  max-height: 300px;
+  padding-top: 0.8rem;
+}
+
+/* ── FINAL CTA ── */
+.final-cta {
+  background: linear-gradient(160deg, var(--navy) 0%, var(--navy-light) 100%);
+  color: var(--white);
+  text-align: center;
+  padding: 4rem 2rem;
+}
+.final-cta h2 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 2rem;
+  margin-bottom: 0.8rem;
+}
+.final-cta p {
+  color: rgba(255,255,255,0.7);
+  margin-bottom: 2rem;
+  font-size: 1.05rem;
+}
+
+/* ── FOOTER ── */
+footer {
+  background: var(--navy);
+  color: rgba(255,255,255,0.5);
+  padding: 2.5rem 2rem;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+.footer-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+.footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 0.8rem;
+}
+.footer-brand .foa-logo {
+  width: 32px; height: 32px;
+  border: 1.5px solid rgba(255,255,255,0.4);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255,255,255,0.7);
+  font-family: 'DM Serif Display', serif;
+  font-size: 0.65rem;
+  font-style: italic;
+}
+.footer-brand span {
+  color: rgba(255,255,255,0.7);
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+.footer-left p {
+  font-size: 0.82rem;
+  line-height: 1.6;
+}
+.footer-right {
+  text-align: right;
+}
+.footer-links {
+  list-style: none;
+  font-size: 0.82rem;
+}
+.footer-links li { margin-bottom: 0.4rem; }
+.footer-links a {
+  color: rgba(255,255,255,0.5);
+  text-decoration: none;
+}
+.footer-links a:hover { color: var(--gold); }
+footer a { color: var(--gold); text-decoration: none; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  .hero-grid { grid-template-columns: 1fr; text-align: center; }
+  .hero-content > p { margin-left: auto; margin-right: auto; }
+  .email-mockup { transform: translateY(0); border-radius: 12px; margin-bottom: 2rem; }
+  .hero { padding-bottom: 2rem; }
+  .credibility-inner { grid-template-columns: 140px 1fr; gap: 1.5rem; }
+  .footer-inner { grid-template-columns: 1fr; }
+  .footer-right { text-align: left; }
+}
+@media (max-width: 600px) {
+  .hero { padding: 2.5rem 1.5rem 2rem; }
+  .step { flex-direction: column; gap: 0.8rem; }
+  .compare-table { font-size: 0.85rem; }
+  .compare-table th, .compare-table td { padding: 0.5rem 0.6rem; }
+  .credibility-inner { grid-template-columns: 1fr; text-align: center; }
+  .credibility img { max-width: 160px; margin: 0 auto; }
+  .topbar { flex-direction: column; gap: 0.5rem; text-align: center; }
+  .trust-inner { flex-direction: column; gap: 1rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- TOP BAR — Forum for offentlige anskaffelser -->
+<div class="topbar">
+  <a href="https://forumoa.no" class="topbar-brand" target="_blank" rel="noopener">
+    <div class="foa-logo">foa</div>
+    <div class="topbar-text">
+      <strong>Forum for offentlige anskaffelser</strong>
+      Norges ledende fagmilj&oslash; innen offentlige anskaffelser
+    </div>
+  </a>
+  <a href="https://forumoa.no" class="topbar-link" target="_blank" rel="noopener">forumoa.no &rarr;</a>
+</div>
+
+<!-- HERO with email mockup -->
+<section class="hero">
+  <div class="hero-grid">
+    <div class="hero-content">
+      <div class="hero-badge">Gratis tjeneste fra FOA</div>
+      <h1>Trenger du hjelp med <em>Doffin</em>?</h1>
+      <p>Doffin er Norges database for offentlige anbud &mdash; men den er tungvint &aring; bruke. Vi sender deg relevante anbud rett i innboksen, hver morgen. Gratis.</p>
+      <a href="https://anbudsradar.no/#registrer" class="cta-btn">F&aring; gratis anbudsvarsler</a>
+      <div class="hero-note">Ingen kredittkort. Ingen binding. Klar p&aring; 2 minutter.</div>
+    </div>
+    <div class="email-mockup">
+      <div class="email-toolbar">
+        <div class="email-dot r"></div>
+        <div class="email-dot y"></div>
+        <div class="email-dot g"></div>
+        <span>Innboks</span>
+      </div>
+      <div class="email-header">
+        <div class="email-from">Anbudsradar</div>
+        <div class="email-subject">Dine anbudsvarsler for i dag &mdash; 3 nye treff</div>
+      </div>
+      <div class="email-body">
+        <h4>Gode morgen! Her er dagens anbud:</h4>
+        <div class="email-item">
+          <div class="email-item-title">Rammeavtale for IT-konsulenttjenester</div>
+          <div class="email-item-meta">Oslo kommune &middot; Frist: 15. april 2026</div>
+          <div class="email-item-tag">IT-tjenester</div>
+        </div>
+        <div class="email-item">
+          <div class="email-item-title">Drift og vedlikehold av nettverk</div>
+          <div class="email-item-meta">Helse S&oslash;r-&Oslash;st &middot; Frist: 22. april 2026</div>
+          <div class="email-item-tag">CPV 72000000</div>
+        </div>
+        <div class="email-item">
+          <div class="email-item-title">Anskaffelse av skybasert fagsystem</div>
+          <div class="email-item-meta">NAV &middot; Frist: 1. mai 2026</div>
+          <div class="email-item-tag">Ny konkurranse</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<section class="trust-bar">
+  <div class="trust-inner">
+    <div class="trust-item"><span class="trust-icon">&#9989;</span> Gratis &mdash; ingen skjulte kostnader</div>
+    <div class="trust-item"><span class="trust-icon">&#128274;</span> Ingen binding eller forpliktelse</div>
+    <div class="trust-item"><span class="trust-icon">&#127891;</span> Fra Norges ledende anbudsfagmilj&oslash;</div>
+  </div>
+</section>
+
+<!-- PROBLEM -->
+<section class="problem">
+  <h2>Problemet med Doffin</h2>
+  <p>Doffin.no er den offisielle portalen for offentlige anskaffelser i Norge. Alle offentlige oppdragsgivere er p&aring;lagt &aring; publisere anbud her &mdash; det betyr tusenvis av muligheter for din bedrift.</p>
+  <p>Men Doffin har et problem: det er vanskelig &aring; holde oversikt. S&oslash;kefunksjonen er begrenset, det finnes ingen varslinger, og du m&aring; manuelt sjekke portalen hver dag for &aring; ikke g&aring; glipp av noe. Det koster tid &mdash; og det koster oppdrag.</p>
+</section>
+
+<!-- FEATURES -->
+<section class="features">
+  <div class="features-inner">
+    <h2>Slik hjelper vi deg</h2>
+    <p class="subtitle">Anbudsradar overv&aring;ker Doffin for deg &mdash; automatisk, hver dag.</p>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">&#128236;</div>
+        <h3>Daglige varsler p&aring; e-post</h3>
+        <p>Hver morgen f&aring;r du en oversikt over nye anbud som matcher dine kriterier. Rett i innboksen &mdash; ingen manuell sjekking.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">&#127919;</div>
+        <h3>Filtrert p&aring; dine behov</h3>
+        <p>Sett opp varsler basert p&aring; s&oslash;keord, CPV-koder eller spesifikke oppdragsgivere. Du bestemmer hva som er relevant for deg.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">&#9889;</div>
+        <h3>Raskere enn konkurrentene</h3>
+        <p>Nye kunngjøringer fanges opp s&aring; fort de publiseres. Du er alltid blant de f&oslash;rste som ser et nytt anbud.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how">
+  <h2>Kom i gang p&aring; 2 minutter</h2>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-text">
+        <h3>Registrer deg gratis</h3>
+        <p>Oppgi bedriftsnavn og e-postadresse. Det tar under ett minutt.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-text">
+        <h3>Velg dine filtre</h3>
+        <p>Legg inn s&oslash;keord som beskriver det du leverer, velg oppdragsgivere du vil f&oslash;lge, eller velg CPV-koder for din bransje.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-text">
+        <h3>Motta daglige varsler</h3>
+        <p>Fra neste morgen f&aring;r du en e-post med alle nye, relevante anbud fra Doffin. Klikk deg rett inn p&aring; kunngj&oslash;ringen.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARISON -->
+<section class="comparison">
+  <div class="comparison-inner">
+    <h2>Doffin manuelt vs. Anbudsradar</h2>
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th></th>
+          <th>Doffin manuelt</th>
+          <th>Anbudsradar</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Daglige e-postvarsler</td>
+          <td class="cross">Nei</td>
+          <td class="check">Ja</td>
+        </tr>
+        <tr>
+          <td>Filtrering p&aring; s&oslash;keord</td>
+          <td>Begrenset</td>
+          <td class="check">Ja</td>
+        </tr>
+        <tr>
+          <td>Filtrering p&aring; CPV-koder</td>
+          <td class="cross">Nei</td>
+          <td class="check">Ja</td>
+        </tr>
+        <tr>
+          <td>F&oslash;lg spesifikke oppdragsgivere</td>
+          <td class="cross">Nei</td>
+          <td class="check">Ja</td>
+        </tr>
+        <tr>
+          <td>Pris</td>
+          <td>Gratis (men tidkrevende)</td>
+          <td class="check">Gratis</td>
+        </tr>
+        <tr>
+          <td>Tidsbruk per dag</td>
+          <td>15&ndash;30 minutter</td>
+          <td class="check">Under 1 minutt</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- CREDIBILITY — Book + FOA -->
+<section class="credibility">
+  <div class="credibility-inner">
+    <img src="https://anbudsradar.no/bok-cover.jpg" alt="Hvordan vinne anbud &mdash; Robert Myhre" loading="lazy">
+    <div>
+      <h2>Fra ekspertene p&aring; offentlige anbud</h2>
+      <p>Anbudsradar er utviklet av Forum for offentlige anskaffelser (FOA) &mdash; Norges ledende fagmilj&oslash; innen offentlige anskaffelser. FOA tilbyr kurs, sertifisering og r&aring;dgivning for b&aring;de innkj&oslash;pere og leverand&oslash;rer.</p>
+      <p>Grunnlegger Robert Myhre er forfatter av fagboken &laquo;Hvordan vinne anbud&raquo; og har hjulpet hundrevis av bedrifter med &aring; vinne offentlige kontrakter.</p>
+      <div class="author">Robert Myhre &mdash; Forum for offentlige anskaffelser</div>
+      <a href="https://forumoa.no" class="cred-link" target="_blank" rel="noopener">Les mer om FOA &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq">
+  <h2>Ofte stilte sp&oslash;rsm&aring;l</h2>
+
+  <div class="faq-item">
+    <div class="faq-q">Hva er Doffin?</div>
+    <div class="faq-a">Doffin er den nasjonale kunngj&oslash;ringsdatabasen for offentlige anskaffelser i Norge. Alle statlige, kommunale og fylkeskommunale virksomheter er p&aring;lagt &aring; publisere anbud over terskelverdiene her. Det er alts&aring; her du finner mulighetene for &aring; levere varer og tjenester til det offentlige.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q">Er Anbudsradar virkelig gratis?</div>
+    <div class="faq-a">Ja. Grunnleggende anbudsvarsler er helt gratis, uten tidsbegrensning. Du kan sette opp s&oslash;keord, CPV-koder og oppdragsgivere og motta daglige e-poster uten &aring; betale noe.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q">Hva er CPV-koder?</div>
+    <div class="faq-a">CPV (Common Procurement Vocabulary) er et europeisk klassifiseringssystem for offentlige innkj&oslash;p. Hver kode beskriver en type vare eller tjeneste &mdash; for eksempel 72000000 for IT-tjenester eller 45000000 for byggearbeid. Ved &aring; bruke CPV-koder i filtrene dine sikrer du at du f&aring;r varsler for akkurat din bransje.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q">Hvor raskt f&aring;r jeg varsel om nye anbud?</div>
+    <div class="faq-a">Anbudsradar sjekker Doffin flere ganger daglig. Du f&aring;r en samlet e-post hver morgen med alle nye kunngj&oslash;ringer som matcher dine kriterier. Slik er du alltid oppdatert uten &aring; bruke tid p&aring; manuelt s&oslash;k.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q">Kan jeg endre filtrene mine senere?</div>
+    <div class="faq-a">Ja. Du kan logge inn og justere s&oslash;keord, CPV-koder og oppdragsgivere n&aring;r som helst. Endringene gjelder fra neste varsel.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q">Hvem st&aring;r bak Anbudsradar?</div>
+    <div class="faq-a">Anbudsradar er utviklet av Forum for offentlige anskaffelser (forumoa.no), Norges ledende fagmilj&oslash; innen offentlige anskaffelser. FOA tilbyr kurs, sertifisering, fagb&oslash;ker og r&aring;dgivning &mdash; og har hjulpet leverand&oslash;rer med &aring; vinne offentlige kontrakter i over ti &aring;r.</div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <h2>Klar til &aring; slippe &aring; sjekke Doffin manuelt?</h2>
+  <p>Registrer deg gratis og f&aring; relevante anbud rett i innboksen fra i morgen.</p>
+  <a href="https://anbudsradar.no/#registrer" class="cta-btn">Registrer deg gratis p&aring; Anbudsradar</a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-left">
+      <div class="footer-brand">
+        <div class="foa-logo">foa</div>
+        <span>Forum for offentlige anskaffelser</span>
+      </div>
+      <p>Doffinhjelp.no er en informasjonsside om offentlige anbud. Varslingstjenesten leveres av <a href="https://anbudsradar.no">Anbudsradar</a>, en gratis tjeneste fra <a href="https://forumoa.no">Forum for offentlige anskaffelser</a>.</p>
+    </div>
+    <div class="footer-right">
+      <ul class="footer-links">
+        <li><a href="https://anbudsradar.no">Anbudsradar.no</a></li>
+        <li><a href="https://forumoa.no">Forumoa.no</a></li>
+        <li><a href="https://forumoa.no/kurs">Kurs i offentlige anbud</a></li>
+        <li><a href="mailto:kurs@forumoa.no">kurs@forumoa.no</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<!-- FAQ toggle -->
+<script>
+document.querySelectorAll('.faq-q').forEach(q => {
+  q.addEventListener('click', () => {
+    q.parentElement.classList.toggle('open');
+  });
+});
+</script>
+
+<!-- Structured data for SEO -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Doffin Hjelp — Automatiske anbudsvarsler fra Doffin",
+  "description": "Få daglige varsler om relevante offentlige anbud fra Doffin, filtrert på dine søkeord. Helt gratis.",
+  "url": "https://doffinhjelp.no/",
+  "provider": {
+    "@type": "Organization",
+    "name": "Forum for offentlige anskaffelser",
+    "url": "https://forumoa.no"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Hva er Doffin?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Doffin er den nasjonale kunngjøringsdatabasen for offentlige anskaffelser i Norge. Alle statlige, kommunale og fylkeskommunale virksomheter er pålagt å publisere anbud over terskelverdiene her."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Er Anbudsradar virkelig gratis?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ja. Grunnleggende anbudsvarsler er helt gratis, uten tidsbegrensning."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Hva er CPV-koder?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "CPV (Common Procurement Vocabulary) er et europeisk klassifiseringssystem for offentlige innkjøp. Hver kode beskriver en type vare eller tjeneste."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Hvem står bak Anbudsradar?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Anbudsradar er utviklet av Forum for offentlige anskaffelser (FOA), Norges ledende fagmiljø innen offentlige anskaffelser."
+      }
+    }
+  ]
+}
+</script>
+
+</body>
+</html>
