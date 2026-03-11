@@ -1,1004 +1,911 @@
 <!DOCTYPE html>
 <html lang="no">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hvordan vinne anbud – Kurs og bok | nyttanbud.no</title>
-  <meta name="description" content="Lær å vinne offentlige anbud. Kurs og fagbok av Robert Myhre – rådgiver i Veritas Procurement, tidl. KOFA-sekretariatsleder, 25+ års erfaring.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Doffin Hjelp — Få automatiske varsler fra Doffin rett i innboksen</title>
+<meta name="description" content="Sliter du med å holde oversikt over offentlige anbud på Doffin? Få daglige varsler filtrert på dine søkeord — helt gratis. Fra Forum for offentlige anskaffelser.">
+<meta name="keywords" content="doffin, doffin hjelp, doffin varsler, offentlige anbud, anbud norge, anbudsvarsler, offentlige anskaffelser, leverandør offentlig sektor">
+<link rel="canonical" href="https://doffinhjelp.no/">
+<meta property="og:title" content="Doffin Hjelp — Automatiske anbudsvarsler fra Doffin">
+<meta property="og:description" content="Få daglige varsler om relevante anbud fra Doffin, filtrert på dine søkeord, CPV-koder og oppdragsgivere. Helt gratis. Fra Forum for offentlige anskaffelser.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://doffinhjelp.no/">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy: #0B1D3A;
+  --navy-light: #132d54;
+  --gold: #C5A55A;
+  --gold-light: #d4bc7e;
+  --cream: #FAF8F4;
+  --warm-gray: #6B7280;
+  --light-border: #E5E1D8;
+  --white: #FFFFFF;
+}
 
-    :root {
-      --navy: #1a2744;
-      --navy-light: #243352;
-      --gold: #c9a84c;
-      --gold-hover: #b8953d;
-      --cream: #f8f6f1;
-      --white: #ffffff;
-      --text: #2d3748;
-      --text-light: #64748b;
-      --green: #16a34a;
-      --red: #dc2626;
-    }
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
-    html { scroll-behavior: smooth; }
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--cream);
+  color: var(--navy);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
 
-    body {
-      font-family: 'Inter', -apple-system, sans-serif;
-      color: var(--text);
-      line-height: 1.6;
-      background: var(--white);
-    }
+/* ── TOP BAR (FOA) ── */
+.topbar {
+  background: var(--navy);
+  padding: 0.6rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.topbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  text-decoration: none;
+}
+.foa-logo {
+  width: 36px;
+  height: 36px;
+  border: 1.5px solid rgba(255,255,255,0.5);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  font-family: 'DM Serif Display', serif;
+  font-size: 0.75rem;
+  font-style: italic;
+}
+.topbar-text {
+  color: rgba(255,255,255,0.7);
+  font-size: 0.8rem;
+  line-height: 1.3;
+}
+.topbar-text strong {
+  color: var(--white);
+  font-weight: 600;
+  display: block;
+  font-size: 0.85rem;
+}
+.topbar-link {
+  color: var(--gold);
+  font-size: 0.8rem;
+  text-decoration: none;
+  font-weight: 500;
+}
+.topbar-link:hover { text-decoration: underline; }
 
-    /* ─── NAV ─── */
-    .nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      background: rgba(26, 39, 68, 0.97);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid rgba(201, 168, 76, 0.15);
-    }
-    .nav-inner {
-      max-width: 1200px; margin: 0 auto;
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 0 24px; height: 64px;
-    }
-    .nav-brand {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.25rem; color: var(--white);
-      text-decoration: none; font-weight: 700;
-    }
-    .nav-brand span { color: var(--gold); }
-    .nav-links { display: flex; gap: 28px; list-style: none; }
-    .nav-links a {
-      color: rgba(255,255,255,0.8); text-decoration: none;
-      font-size: 0.9rem; font-weight: 500; transition: color 0.2s;
-    }
-    .nav-links a:hover { color: var(--gold); }
-    .nav-cta {
-      background: var(--gold); color: var(--navy) !important;
-      padding: 8px 20px; border-radius: 6px; font-weight: 600 !important;
-    }
-    .nav-cta:hover { background: var(--gold-hover); }
-    .hamburger {
-      display: none; background: none; border: none; cursor: pointer;
-      flex-direction: column; gap: 5px;
-    }
-    .hamburger span {
-      display: block; width: 24px; height: 2px; background: var(--white);
-      transition: 0.3s;
-    }
+/* ── HERO ── */
+.hero {
+  background: linear-gradient(160deg, var(--navy) 0%, var(--navy-light) 100%);
+  color: var(--white);
+  padding: 3.5rem 2rem 0;
+  overflow: hidden;
+}
+.hero-grid {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+.hero-content {
+  padding-bottom: 3.5rem;
+}
+.hero-badge {
+  display: inline-block;
+  background: rgba(197,165,90,0.15);
+  color: var(--gold);
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.4rem 1.2rem;
+  border-radius: 50px;
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.03em;
+}
+.hero h1 {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  line-height: 1.2;
+  margin-bottom: 1.2rem;
+}
+.hero h1 em {
+  font-style: normal;
+  color: var(--gold);
+}
+.hero-content > p {
+  font-size: 1.1rem;
+  color: rgba(255,255,255,0.75);
+  margin-bottom: 2rem;
+  max-width: 480px;
+}
+.cta-btn {
+  display: inline-block;
+  background: var(--gold);
+  color: var(--navy);
+  font-weight: 700;
+  font-size: 1.05rem;
+  padding: 0.9rem 2.4rem;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background 0.2s, transform 0.15s;
+}
+.cta-btn:hover {
+  background: var(--gold-light);
+  transform: translateY(-1px);
+}
+.hero-note {
+  margin-top: 1rem;
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.5);
+}
 
-    /* ─── HERO ─── */
-    .hero {
-      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
-      padding: 140px 24px 100px;
-      position: relative; overflow: hidden;
-    }
-    .hero::before {
-      content: ''; position: absolute; top: -50%; right: -20%;
-      width: 600px; height: 600px;
-      background: radial-gradient(circle, rgba(201,168,76,0.08) 0%, transparent 70%);
-      border-radius: 50%;
-    }
-    .hero-inner {
-      max-width: 1200px; margin: 0 auto;
-      display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;
-    }
-    .hero-badge {
-      display: inline-flex; align-items: center; gap: 8px;
-      background: rgba(201,168,76,0.15); color: var(--gold);
-      padding: 6px 16px; border-radius: 20px;
-      font-size: 0.85rem; font-weight: 600; margin-bottom: 20px;
-    }
-    .hero-badge .dot {
-      width: 8px; height: 8px; background: var(--green);
-      border-radius: 50%; animation: pulse 2s infinite;
-    }
-    @keyframes pulse {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.4; }
-    }
-    .hero h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: 3.5rem; line-height: 1.1;
-      color: var(--white); margin-bottom: 20px;
-    }
-    .hero h1 em {
-      color: var(--gold); font-style: italic;
-    }
-    .hero-sub {
-      font-size: 1.2rem; color: rgba(255,255,255,0.75);
-      margin-bottom: 36px; max-width: 480px;
-    }
-    .hero-buttons { display: flex; gap: 16px; flex-wrap: wrap; }
-    .btn {
-      display: inline-flex; align-items: center; gap: 8px;
-      padding: 14px 28px; border-radius: 8px;
-      font-size: 1rem; font-weight: 600; text-decoration: none;
-      transition: all 0.2s; cursor: pointer; border: none;
-    }
-    .btn-gold { background: var(--gold); color: var(--navy); }
-    .btn-gold:hover { background: var(--gold-hover); transform: translateY(-1px); box-shadow: 0 4px 20px rgba(201,168,76,0.4); }
-    .btn-outline {
-      background: transparent; color: var(--white);
-      border: 2px solid rgba(255,255,255,0.3);
-    }
-    .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
-    .hero-stats {
-      display: flex; gap: 32px; margin-top: 48px;
-    }
-    .hero-stat { text-align: center; }
-    .hero-stat-num {
-      font-family: 'Playfair Display', serif;
-      font-size: 2rem; color: var(--gold); font-weight: 800;
-    }
-    .hero-stat-label { font-size: 0.8rem; color: rgba(255,255,255,0.6); margin-top: 4px; }
+/* ── EMAIL MOCKUP ── */
+.email-mockup {
+  background: var(--white);
+  border-radius: 12px 12px 0 0;
+  box-shadow: 0 -4px 40px rgba(0,0,0,0.3);
+  overflow: hidden;
+  transform: translateY(30px);
+}
+.email-toolbar {
+  background: #f3f3f3;
+  padding: 0.6rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-bottom: 1px solid #e0e0e0;
+}
+.email-dot {
+  width: 10px; height: 10px; border-radius: 50%;
+}
+.email-dot.r { background: #ff5f57; }
+.email-dot.y { background: #febc2e; }
+.email-dot.g { background: #28c840; }
+.email-toolbar span {
+  margin-left: auto;
+  font-size: 0.7rem;
+  color: #999;
+}
+.email-header {
+  padding: 1rem 1.2rem;
+  border-bottom: 1px solid var(--light-border);
+}
+.email-from {
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: var(--navy);
+}
+.email-subject {
+  font-size: 0.8rem;
+  color: var(--warm-gray);
+  margin-top: 0.15rem;
+}
+.email-body {
+  padding: 1rem 1.2rem 1.4rem;
+}
+.email-body h4 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1rem;
+  color: var(--navy);
+  margin-bottom: 0.8rem;
+}
+.email-item {
+  background: var(--cream);
+  border-left: 3px solid var(--gold);
+  padding: 0.6rem 0.8rem;
+  margin-bottom: 0.5rem;
+  border-radius: 0 6px 6px 0;
+}
+.email-item-title {
+  font-weight: 600;
+  font-size: 0.78rem;
+  color: var(--navy);
+  line-height: 1.3;
+}
+.email-item-meta {
+  font-size: 0.7rem;
+  color: var(--warm-gray);
+  margin-top: 0.15rem;
+}
+.email-item-tag {
+  display: inline-block;
+  background: rgba(197,165,90,0.15);
+  color: var(--gold);
+  font-size: 0.6rem;
+  font-weight: 600;
+  padding: 0.1rem 0.5rem;
+  border-radius: 4px;
+  margin-top: 0.25rem;
+}
 
-    .hero-visual {
-      display: flex; justify-content: center; align-items: center;
-    }
-    .book-mockup {
-      position: relative;
-      width: 340px;
-      transform: perspective(800px) rotateY(-6deg);
-      transition: transform 0.4s;
-    }
-    .book-mockup:hover { transform: perspective(800px) rotateY(-2deg); }
-    .book-mockup img {
-      width: 100%; height: auto; border-radius: 4px;
-      box-shadow: -20px 20px 60px rgba(0,0,0,0.4);
-    }
+/* ── TRUST BAR ── */
+.trust-bar {
+  background: var(--white);
+  border-bottom: 1px solid var(--light-border);
+  padding: 1.5rem 2rem;
+  text-align: center;
+}
+.trust-inner {
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+.trust-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--warm-gray);
+  font-size: 0.9rem;
+}
+.trust-icon {
+  font-size: 1.1rem;
+}
 
-    /* ─── KURS HERO IMAGE ─── */
-    .kurs-hero-img {
-      width: 100%; border-radius: 16px; overflow: hidden;
-      margin-bottom: 48px;
-      box-shadow: 0 8px 32px rgba(0,0,0,0.1);
-    }
-    .kurs-hero-img img {
-      width: 100%; height: 320px; object-fit: cover; display: block;
-    }
+/* ── PROBLEM ── */
+.problem {
+  padding: 4rem 2rem;
+  max-width: 820px;
+  margin: 0 auto;
+}
+.problem h2 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.8rem;
+  margin-bottom: 1.2rem;
+  text-align: center;
+}
+.problem p {
+  color: var(--warm-gray);
+  font-size: 1.05rem;
+  text-align: center;
+  margin-bottom: 1rem;
+}
 
-    /* ─── SECTIONS ─── */
-    section { padding: 80px 24px; }
-    .section-inner { max-width: 1100px; margin: 0 auto; }
-    .section-label {
-      color: var(--gold); font-size: 0.85rem; font-weight: 700;
-      text-transform: uppercase; letter-spacing: 2px; margin-bottom: 8px;
-    }
-    .section-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 2.4rem; margin-bottom: 16px; color: var(--navy);
-    }
-    .section-desc {
-      font-size: 1.1rem; color: var(--text-light);
-      max-width: 640px; margin-bottom: 48px;
-    }
+/* ── FEATURES ── */
+.features {
+  padding: 3rem 2rem 4rem;
+  background: var(--white);
+}
+.features-inner {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+.features h2 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.8rem;
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+.features .subtitle {
+  text-align: center;
+  color: var(--warm-gray);
+  margin-bottom: 2.5rem;
+  font-size: 1.05rem;
+}
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+.feature-card {
+  background: var(--cream);
+  border: 1px solid var(--light-border);
+  border-radius: 14px;
+  padding: 2rem;
+}
+.feature-icon {
+  width: 48px;
+  height: 48px;
+  background: var(--navy);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+}
+.feature-card h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+.feature-card p {
+  color: var(--warm-gray);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
 
-    /* ─── PROBLEM/AGITATION ─── */
-    .problem { background: var(--cream); }
-    .problem-grid {
-      display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
-    }
-    .problem-card {
-      background: var(--white); padding: 32px; border-radius: 12px;
-      border: 1px solid #e2e8f0;
-    }
-    .problem-icon {
-      font-size: 1.5rem; margin-bottom: 12px;
-    }
-    .problem-card h3 {
-      font-size: 1.1rem; margin-bottom: 8px; color: var(--navy);
-    }
-    .problem-card p { font-size: 0.95rem; color: var(--text-light); }
+/* ── HOW IT WORKS ── */
+.how {
+  padding: 4rem 2rem;
+  max-width: 820px;
+  margin: 0 auto;
+}
+.how h2 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.8rem;
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+.steps {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.step {
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
+}
+.step-num {
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  background: var(--gold);
+  color: var(--navy);
+  font-weight: 700;
+  font-size: 1.1rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.step-text h3 {
+  font-size: 1.05rem;
+  margin-bottom: 0.3rem;
+}
+.step-text p {
+  color: var(--warm-gray);
+  font-size: 0.95rem;
+}
 
-    /* ─── KURS ─── */
-    .kurs { background: var(--white); }
-    .kurs-grid {
-      display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
-      margin-bottom: 48px;
-    }
-    .kurs-card {
-      background: var(--cream); padding: 28px; border-radius: 12px;
-      border-left: 4px solid var(--gold);
-    }
-    .kurs-card h3 {
-      font-size: 1rem; color: var(--navy); margin-bottom: 8px;
-      display: flex; align-items: center; gap: 8px;
-    }
-    .kurs-card p { font-size: 0.9rem; color: var(--text-light); }
+/* ── COMPARISON ── */
+.comparison {
+  padding: 4rem 2rem;
+  background: var(--white);
+}
+.comparison-inner {
+  max-width: 700px;
+  margin: 0 auto;
+}
+.comparison h2 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.8rem;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.compare-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+.compare-table th {
+  text-align: left;
+  padding: 0.8rem 1rem;
+  background: var(--navy);
+  color: var(--white);
+  font-weight: 600;
+}
+.compare-table th:first-child { border-radius: 8px 0 0 0; }
+.compare-table th:last-child { border-radius: 0 8px 0 0; }
+.compare-table td {
+  padding: 0.7rem 1rem;
+  border-bottom: 1px solid var(--light-border);
+}
+.compare-table tr:last-child td:first-child { border-radius: 0 0 0 8px; }
+.compare-table tr:last-child td:last-child { border-radius: 0 0 8px 0; }
+.check { color: #2D8F5E; font-weight: 700; }
+.cross { color: #ef4444; }
 
-    .kurs-meta {
-      display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;
-      background: var(--navy); border-radius: 16px; padding: 36px;
-      text-align: center;
-    }
-    .kurs-meta-item h4 {
-      color: var(--gold); font-size: 1rem; margin-bottom: 4px;
-    }
-    .kurs-meta-item p { color: rgba(255,255,255,0.7); font-size: 0.9rem; }
+/* ── CREDIBILITY / BOOK ── */
+.credibility {
+  padding: 4rem 2rem;
+}
+.credibility-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 2.5rem;
+  align-items: center;
+}
+.credibility img {
+  width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+}
+.credibility h2 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.6rem;
+  margin-bottom: 0.8rem;
+}
+.credibility p {
+  color: var(--warm-gray);
+  font-size: 0.95rem;
+  margin-bottom: 0.8rem;
+  line-height: 1.6;
+}
+.credibility .author {
+  font-weight: 600;
+  color: var(--navy);
+  font-size: 0.9rem;
+}
+.cred-link {
+  display: inline-block;
+  margin-top: 0.5rem;
+  color: var(--gold);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+.cred-link:hover { text-decoration: underline; }
 
-    /* ─── FORFATTER ─── */
-    .author-section { background: var(--cream); }
-    .author-grid {
-      display: grid; grid-template-columns: 280px 1fr; gap: 48px;
-      align-items: start;
-    }
-    .author-photo {
-      width: 280px; height: 340px;
-      border-radius: 16px; overflow: hidden;
-    }
-    .author-photo img {
-      width: 100%; height: 100%; object-fit: cover; object-position: top;
-    }
-    .author-creds {
-      display: flex; flex-wrap: wrap; gap: 12px; margin-top: 20px;
-    }
-    .cred-tag {
-      background: rgba(201,168,76,0.12); color: var(--navy);
-      padding: 6px 14px; border-radius: 20px; font-size: 0.85rem;
-      font-weight: 500;
-    }
+/* ── FAQ ── */
+.faq {
+  padding: 4rem 2rem;
+  max-width: 760px;
+  margin: 0 auto;
+}
+.faq h2 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.8rem;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.faq-item {
+  border-bottom: 1px solid var(--light-border);
+  padding: 1.2rem 0;
+}
+.faq-q {
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.faq-q::after {
+  content: '+';
+  font-size: 1.4rem;
+  color: var(--gold);
+  transition: transform 0.2s;
+}
+.faq-item.open .faq-q::after { content: '\2212'; }
+.faq-a {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+  color: var(--warm-gray);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+.faq-item.open .faq-a {
+  max-height: 300px;
+  padding-top: 0.8rem;
+}
 
-    /* ─── BOK ─── */
-    .bok { background: var(--white); }
-    .bok-grid {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 48px;
-      align-items: center;
-    }
-    .bok-features { list-style: none; }
-    .bok-features li {
-      padding: 12px 0;
-      border-bottom: 1px solid #e2e8f0;
-      display: flex; align-items: baseline; gap: 12px;
-      font-size: 0.95rem;
-    }
-    .bok-features li::before {
-      content: '✓'; color: var(--gold); font-weight: 700; font-size: 1.1rem;
-    }
-    .bok-price-box {
-      background: var(--cream); border-radius: 16px; padding: 36px;
-      text-align: center; border: 2px solid var(--gold);
-    }
-    .bok-price {
-      font-family: 'Playfair Display', serif;
-      font-size: 2.8rem; color: var(--navy); margin-bottom: 8px;
-    }
-    .bok-price-note { color: var(--text-light); font-size: 0.9rem; margin-bottom: 24px; }
+/* ── FINAL CTA ── */
+.final-cta {
+  background: linear-gradient(160deg, var(--navy) 0%, var(--navy-light) 100%);
+  color: var(--white);
+  text-align: center;
+  padding: 4rem 2rem;
+}
+.final-cta h2 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 2rem;
+  margin-bottom: 0.8rem;
+}
+.final-cta p {
+  color: rgba(255,255,255,0.7);
+  margin-bottom: 2rem;
+  font-size: 1.05rem;
+}
 
-    /* ─── TESTIMONIAL ─── */
-    .testimonial {
-      background: var(--navy);
-      padding: 60px 24px;
-      text-align: center;
-    }
-    .testimonial blockquote {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.5rem; color: var(--white);
-      max-width: 800px; margin: 0 auto 20px;
-      line-height: 1.5; font-style: italic;
-    }
-    .testimonial cite {
-      color: var(--gold); font-style: normal; font-size: 0.95rem;
-    }
+/* ── FOOTER ── */
+footer {
+  background: var(--navy);
+  color: rgba(255,255,255,0.5);
+  padding: 2.5rem 2rem;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+.footer-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+.footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 0.8rem;
+}
+.footer-brand .foa-logo {
+  width: 32px; height: 32px;
+  border: 1.5px solid rgba(255,255,255,0.4);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255,255,255,0.7);
+  font-family: 'DM Serif Display', serif;
+  font-size: 0.65rem;
+  font-style: italic;
+}
+.footer-brand span {
+  color: rgba(255,255,255,0.7);
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+.footer-left p {
+  font-size: 0.82rem;
+  line-height: 1.6;
+}
+.footer-right {
+  text-align: right;
+}
+.footer-links {
+  list-style: none;
+  font-size: 0.82rem;
+}
+.footer-links li { margin-bottom: 0.4rem; }
+.footer-links a {
+  color: rgba(255,255,255,0.5);
+  text-decoration: none;
+}
+.footer-links a:hover { color: var(--gold); }
+footer a { color: var(--gold); text-decoration: none; }
 
-    /* ─── PÅMELDING ─── */
-    .signup { background: var(--cream); }
-    .signup-box {
-      max-width: 680px; margin: 0 auto;
-      background: var(--white); border-radius: 16px;
-      padding: 48px; box-shadow: 0 4px 24px rgba(0,0,0,0.06);
-      border: 1px solid #e2e8f0;
-    }
-    .signup-box h3 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.8rem; color: var(--navy); margin-bottom: 8px;
-      text-align: center;
-    }
-    .signup-price-tag {
-      text-align: center; margin-bottom: 32px;
-    }
-    .signup-price-tag .price {
-      font-family: 'Playfair Display', serif;
-      font-size: 2.2rem; color: var(--gold); font-weight: 800;
-    }
-    .signup-price-tag .note {
-      font-size: 0.85rem; color: var(--text-light);
-    }
-    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-    .form-group { margin-bottom: 16px; }
-    .form-group label {
-      display: block; font-size: 0.85rem; font-weight: 600;
-      color: var(--navy); margin-bottom: 4px;
-    }
-    .form-group input, .form-group select {
-      width: 100%; padding: 12px 14px; border: 1px solid #d1d5db;
-      border-radius: 8px; font-size: 0.95rem; font-family: inherit;
-      transition: border-color 0.2s;
-    }
-    .form-group input:focus, .form-group select:focus {
-      outline: none; border-color: var(--gold);
-      box-shadow: 0 0 0 3px rgba(201,168,76,0.15);
-    }
-    .required { color: var(--red); }
-    .checkbox-row {
-      display: flex; align-items: center; gap: 8px;
-      margin: 16px 0; font-size: 0.9rem;
-    }
-    .checkbox-row input { width: 18px; height: 18px; accent-color: var(--gold); }
-    .submit-btn {
-      width: 100%; padding: 16px; background: var(--gold);
-      color: var(--navy); font-size: 1.1rem; font-weight: 700;
-      border: none; border-radius: 8px; cursor: pointer;
-      transition: all 0.2s; margin-top: 8px;
-    }
-    .submit-btn:hover {
-      background: var(--gold-hover);
-      transform: translateY(-1px);
-      box-shadow: 0 4px 20px rgba(201,168,76,0.4);
-    }
-    .form-note {
-      text-align: center; font-size: 0.85rem;
-      color: var(--text-light); margin-top: 16px;
-    }
-    .form-success {
-      display: none; text-align: center; padding: 40px 20px;
-    }
-    .form-success.show { display: block; }
-    .form-success h3 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.6rem; color: var(--navy); margin-bottom: 12px;
-    }
-    .form-success p { color: var(--text-light); }
-
-    /* ─── BOK BESTILLING ─── */
-    .order { background: var(--white); }
-    .order-box {
-      max-width: 680px; margin: 0 auto;
-      background: var(--cream); border-radius: 16px;
-      padding: 48px; border: 2px solid var(--gold);
-    }
-    .order-box h3 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.8rem; color: var(--navy); margin-bottom: 8px;
-      text-align: center;
-    }
-    .order-price-tag {
-      text-align: center; margin-bottom: 32px;
-    }
-    .order-price-tag .price {
-      font-family: 'Playfair Display', serif;
-      font-size: 2.2rem; color: var(--gold); font-weight: 800;
-    }
-    .order-price-tag .note {
-      font-size: 0.85rem; color: var(--text-light);
-    }
-    .order-success {
-      display: none; text-align: center; padding: 40px 20px;
-    }
-    .order-success.show { display: block; }
-    .order-success h3 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.6rem; color: var(--navy); margin-bottom: 12px;
-    }
-
-    /* ─── FAQ ─── */
-    .faq { background: var(--cream); }
-    .faq-list { max-width: 720px; }
-    .faq-item {
-      background: var(--white); border-radius: 10px;
-      margin-bottom: 12px; overflow: hidden;
-      border: 1px solid #e2e8f0;
-    }
-    .faq-q {
-      padding: 20px 24px; cursor: pointer;
-      display: flex; justify-content: space-between; align-items: center;
-      font-weight: 600; font-size: 0.95rem; color: var(--navy);
-      user-select: none;
-    }
-    .faq-q::after { content: '+'; font-size: 1.4rem; color: var(--gold); transition: transform 0.3s; }
-    .faq-item.open .faq-q::after { content: '−'; }
-    .faq-a {
-      max-height: 0; overflow: hidden; transition: max-height 0.3s ease;
-    }
-    .faq-a-inner {
-      padding: 0 24px 20px;
-      font-size: 0.9rem; color: var(--text-light); line-height: 1.7;
-    }
-    .faq-item.open .faq-a { max-height: 300px; }
-
-    /* ─── CTA BANNER ─── */
-    .cta-banner {
-      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
-      padding: 80px 24px; text-align: center;
-    }
-    .cta-banner h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: 2.4rem; color: var(--white); margin-bottom: 16px;
-    }
-    .cta-banner p {
-      font-size: 1.1rem; color: rgba(255,255,255,0.7);
-      margin-bottom: 32px; max-width: 540px; margin-left: auto; margin-right: auto;
-    }
-    .cta-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
-
-    /* ─── FOOTER ─── */
-    footer {
-      background: var(--navy); padding: 40px 24px;
-      text-align: center; color: rgba(255,255,255,0.5);
-      font-size: 0.85rem;
-    }
-    footer a { color: var(--gold); text-decoration: none; }
-
-    /* ─── MOBILE ─── */
-    @media (max-width: 900px) {
-      .hamburger { display: flex; }
-      .nav-links {
-        display: none; position: absolute; top: 64px; left: 0; right: 0;
-        background: var(--navy); flex-direction: column;
-        padding: 20px 24px; gap: 16px;
-      }
-      .nav-links.open { display: flex; }
-      .hero-inner { grid-template-columns: 1fr; text-align: center; }
-      .hero h1 { font-size: 2.4rem; }
-      .hero-sub { margin-left: auto; margin-right: auto; }
-      .hero-buttons { justify-content: center; }
-      .hero-stats { justify-content: center; }
-      .hero-visual { margin-top: 40px; }
-      .book-mockup { width: 240px; }
-      .problem-grid { grid-template-columns: 1fr; }
-      .kurs-grid { grid-template-columns: 1fr; }
-      .kurs-meta { grid-template-columns: 1fr 1fr; }
-      .author-grid { grid-template-columns: 1fr; }
-      .author-photo { width: 100%; max-width: 280px; margin: 0 auto; }
-      .bok-grid { grid-template-columns: 1fr; }
-      .form-row { grid-template-columns: 1fr; }
-      .section-title { font-size: 1.8rem; }
-    }
-
-    /* ─── FADE IN ─── */
-    .fade-in {
-      opacity: 0; transform: translateY(24px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
-    }
-    .fade-in.visible { opacity: 1; transform: translateY(0); }
-
-    /* ─── STICKY BOTTOM BAR ─── */
-    .sticky-bar {
-      display: none; position: fixed; bottom: 0; left: 0; right: 0;
-      background: var(--navy); padding: 12px 24px; z-index: 90;
-      box-shadow: 0 -4px 20px rgba(0,0,0,0.2);
-    }
-    .sticky-bar-inner {
-      max-width: 1100px; margin: 0 auto;
-      display: flex; align-items: center; justify-content: space-between;
-    }
-    .sticky-bar p { color: var(--white); font-size: 0.95rem; font-weight: 500; }
-    .sticky-bar .price { color: var(--gold); font-weight: 700; }
-    @media (min-width: 600px) {
-      .sticky-bar.show { display: block; }
-    }
-  </style>
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  .hero-grid { grid-template-columns: 1fr; text-align: center; }
+  .hero-content > p { margin-left: auto; margin-right: auto; }
+  .email-mockup { transform: translateY(0); border-radius: 12px; margin-bottom: 2rem; }
+  .hero { padding-bottom: 2rem; }
+  .credibility-inner { grid-template-columns: 140px 1fr; gap: 1.5rem; }
+  .footer-inner { grid-template-columns: 1fr; }
+  .footer-right { text-align: left; }
+}
+@media (max-width: 600px) {
+  .hero { padding: 2.5rem 1.5rem 2rem; }
+  .step { flex-direction: column; gap: 0.8rem; }
+  .compare-table { font-size: 0.85rem; }
+  .compare-table th, .compare-table td { padding: 0.5rem 0.6rem; }
+  .credibility-inner { grid-template-columns: 1fr; text-align: center; }
+  .credibility img { max-width: 160px; margin: 0 auto; }
+  .topbar { flex-direction: column; gap: 0.5rem; text-align: center; }
+  .trust-inner { flex-direction: column; gap: 1rem; }
+}
+</style>
 </head>
 <body>
 
-  <!-- NAV -->
-  <nav class="nav">
-    <div class="nav-inner">
-      <a href="#" class="nav-brand">nytt<span>anbud</span>.no</a>
-      <button class="hamburger" aria-label="Meny">
-        <span></span><span></span><span></span>
-      </button>
-      <ul class="nav-links">
-        <li><a href="#kurs">Kurset</a></li>
-        <li><a href="#bok">Boken</a></li>
-        <li><a href="#forfatter">Om Robert</a></li>
-        <li><a href="#faq">FAQ</a></li>
-        <li><a href="#pamelding" class="nav-cta">Meld deg på →</a></li>
-      </ul>
+<!-- TOP BAR — Forum for offentlige anskaffelser -->
+<div class="topbar">
+  <a href="https://forumoa.no" class="topbar-brand" target="_blank" rel="noopener">
+    <div class="foa-logo">foa</div>
+    <div class="topbar-text">
+      <strong>Forum for offentlige anskaffelser</strong>
+      Norges ledende fagmilj&oslash; innen offentlige anskaffelser
     </div>
-  </nav>
+  </a>
+  <a href="https://forumoa.no" class="topbar-link" target="_blank" rel="noopener">forumoa.no &rarr;</a>
+</div>
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="hero-inner">
-      <div>
-        <div class="hero-badge">
-          <span class="dot"></span>
-          Neste kurs: 2. juni 2026 · Live webinar
+<!-- HERO with email mockup -->
+<section class="hero">
+  <div class="hero-grid">
+    <div class="hero-content">
+      <div class="hero-badge">Gratis tjeneste fra FOA</div>
+      <h1>Trenger du hjelp med <em>Doffin</em>?</h1>
+      <p>Doffin er Norges database for offentlige anbud &mdash; men den er tungvint &aring; bruke. Vi sender deg relevante anbud rett i innboksen, hver morgen. Gratis.</p>
+      <a href="https://anbudsradar.no/#registrer" class="cta-btn">F&aring; gratis anbudsvarsler</a>
+      <div class="hero-note">Ingen kredittkort. Ingen binding. Klar p&aring; 2 minutter.</div>
+    </div>
+    <div class="email-mockup">
+      <div class="email-toolbar">
+        <div class="email-dot r"></div>
+        <div class="email-dot y"></div>
+        <div class="email-dot g"></div>
+        <span>Innboks</span>
+      </div>
+      <div class="email-header">
+        <div class="email-from">Anbudsradar</div>
+        <div class="email-subject">Dine anbudsvarsler for i dag &mdash; 3 nye treff</div>
+      </div>
+      <div class="email-body">
+        <h4>Gode morgen! Her er dagens anbud:</h4>
+        <div class="email-item">
+          <div class="email-item-title">Rammeavtale for IT-konsulenttjenester</div>
+          <div class="email-item-meta">Oslo kommune &middot; Frist: 15. april 2026</div>
+          <div class="email-item-tag">IT-tjenester</div>
         </div>
-        <h1>Hvordan <em>vinne</em> anbud</h1>
-        <p class="hero-sub">Slutt å bare delta i anbudskonkurranser. Lær taktikken, jussen og strategien som skiller vinnerne fra resten.</p>
-        <div class="hero-buttons">
-          <a href="#pamelding" class="btn btn-gold">Meld deg på kurset →</a>
-          <a href="#bok" class="btn btn-outline">Bestill boken</a>
+        <div class="email-item">
+          <div class="email-item-title">Drift og vedlikehold av nettverk</div>
+          <div class="email-item-meta">Helse S&oslash;r-&Oslash;st &middot; Frist: 22. april 2026</div>
+          <div class="email-item-tag">CPV 72000000</div>
         </div>
-        <div class="hero-stats">
-          <div class="hero-stat">
-            <div class="hero-stat-num">600+</div>
-            <div class="hero-stat-label">Mrd. i offentlige<br>anskaffelser årlig</div>
-          </div>
-          <div class="hero-stat">
-            <div class="hero-stat-num">25+</div>
-            <div class="hero-stat-label">År erfaring<br>hos kursleder</div>
-          </div>
-          <div class="hero-stat">
-            <div class="hero-stat-num">1000+</div>
-            <div class="hero-stat-label">Anbudssaker<br>gjennomgått</div>
-          </div>
+        <div class="email-item">
+          <div class="email-item-title">Anskaffelse av skybasert fagsystem</div>
+          <div class="email-item-meta">NAV &middot; Frist: 1. mai 2026</div>
+          <div class="email-item-tag">Ny konkurranse</div>
         </div>
       </div>
-      <div class="hero-visual">
-        <div class="book-mockup">
-          <img src="images/bok-forside.jpg" alt="Hvordan vinne anbud – bok av Robert Myhre">
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PROBLEM -->
-  <section class="problem">
-    <div class="section-inner">
-      <div class="section-label">Kjenner du deg igjen?</div>
-      <h2 class="section-title">Du taper anbud du burde vinne</h2>
-      <p class="section-desc">Ikke fordi du mangler kompetanse – men fordi du ikke forstår spillereglene godt nok.</p>
-      <div class="problem-grid">
-        <div class="problem-card fade-in">
-          <div class="problem-icon">😤</div>
-          <h3>Skriver gode tilbud – men scorer lavt</h3>
-          <p>Du beskriver hva dere kan, men forstår ikke hva oppdragsgiver faktisk evaluerer. Adjektiver gir ikke poeng.</p>
-        </div>
-        <div class="problem-card fade-in">
-          <div class="problem-icon">💸</div>
-          <h3>Priser feil – og taper på det</h3>
-          <p>Du er enten for dyr og taper, eller for billig og ødelegger marginen. Taktisk prissetting er en ferdighet.</p>
-        </div>
-        <div class="problem-card fade-in">
-          <div class="problem-icon">🤷</div>
-          <h3>Vet ikke hva som skjedde</h3>
-          <p>Du får avslag uten å forstå hvorfor. Evalueringsmodellene er en svart boks – men det trenger de ikke være.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- KURSINNHOLD -->
-  <section class="kurs" id="kurs">
-    <div class="section-inner">
-      <div class="section-label">Kursinnhold</div>
-      <h2 class="section-title">Hva du lærer på 3 timer</h2>
-      <p class="section-desc">Fra frustrasjon til fortrinn – konkrete strategier for å øke vinnersjansene dine i anbudskonkurranser.</p>
-      <div class="kurs-hero-img fade-in">
-        <img src="images/kurs-bilde.jpg" alt="Robert Myhre underviser i evalueringsmodeller for offentlige anbud">
-      </div>
-      <div class="kurs-grid">
-        <div class="kurs-card fade-in">
-          <h3>📋 Kravspesifikasjonen dekonstruert</h3>
-          <p>Metodikk for å analysere, forstå og besvare krav presist og målrettet. Forstå hva oppdragsgiver egentlig etterspør.</p>
-        </div>
-        <div class="kurs-card fade-in">
-          <h3>🏆 Kvalitetspoeng som konkurransefortrinn</h3>
-          <p>Dokumentere og konkretisere kvalitet på en måte som scorer høyt. Unngå «adjektiv-fellen» – skriv verdi, ikke egenskaper.</p>
-        </div>
-        <div class="kurs-card fade-in">
-          <h3>💰 Strategisk prising</h3>
-          <p>Balansere konkurransekraft og lønnsomhet gjennom taktisk prissetting og forståelse av evalueringsmodeller.</p>
-        </div>
-        <div class="kurs-card fade-in">
-          <h3>🤝 Samarbeidsmodeller</h3>
-          <p>Joint ventures, konsortier og underleverandørløsninger: juridiske rammer og strategiske muligheter.</p>
-        </div>
-        <div class="kurs-card fade-in">
-          <h3>🔢 Evalueringsmodeller avmystifisert</h3>
-          <p>Forstå hvordan poengmodeller faktisk fungerer og hvordan du optimaliserer tilbudet ditt for å score maksimalt.</p>
-        </div>
-        <div class="kurs-card fade-in">
-          <h3>👤 CV-er som selger</h3>
-          <p>Utforme kompetansepresentasjoner som matcher tildelingskriteriene perfekt. Gjør CV-en til en «produktkatalog».</p>
-        </div>
-      </div>
-      <div class="kurs-meta fade-in">
-        <div class="kurs-meta-item">
-          <h4>Format</h4>
-          <p>Live webinar</p>
-        </div>
-        <div class="kurs-meta-item">
-          <h4>Varighet</h4>
-          <p>3 timer</p>
-        </div>
-        <div class="kurs-meta-item">
-          <h4>Tidspunkt</h4>
-          <p>09:00 – 12:00</p>
-        </div>
-        <div class="kurs-meta-item">
-          <h4>Pris</h4>
-          <p>Kr 4 900,-</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FORFATTER -->
-  <section class="author-section" id="forfatter">
-    <div class="section-inner">
-      <div class="section-label">Kursleder og forfatter</div>
-      <h2 class="section-title">Robert Myhre</h2>
-      <div class="author-grid">
-        <div>
-          <div class="author-photo">
-            <img src="images/robert-myhre.jpg" alt="Robert Myhre – kursleder og forfatter">
-          </div>
-        </div>
-        <div>
-          <p style="font-size:1.05rem; margin-bottom:16px;">Over 25 års erfaring fra alle sider av bordet i offentlige anskaffelser. Rådgiver i Veritas Procurement og kursleder i Forum for offentlige anskaffelser.</p>
-          <p style="color: var(--text-light); margin-bottom:12px;">Robert var med på å utarbeide anskaffelsesforskriften i Nærings- og handelsdepartementet, etablerte sekretariatet for Klagenemnda for offentlige anskaffelser (KOFA), og praktiserte som advokat i 20 år (til 2024).</p>
-          <p style="color: var(--text-light); margin-bottom:24px;">Denne unike bakgrunnen – fra regelverksutformer til klagenemnd til praktiserende advokat til rådgiver – gir kursdeltakere og lesere tilgang til innsikt som sjelden er tilgjengelig for leverandører.</p>
-          <div class="author-creds">
-            <span class="cred-tag">📜 Utformet anskaffelsesforskriften</span>
-            <span class="cred-tag">⚖️ Sekretariatsleder i KOFA</span>
-            <span class="cred-tag">👔 Advokat i 20 år (til 2024)</span>
-            <span class="cred-tag">💼 Rådgiver i Veritas Procurement</span>
-            <span class="cred-tag">📊 1000+ anbudssaker</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- TESTIMONIAL -->
-  <section class="testimonial">
-    <div class="section-inner">
-      <blockquote>«Et nærmere 400 siders dyptpløyende oppslagsverk som for veldig mange praktikere bør være et must.»</blockquote>
-      <cite>— Lennart Hovland, Anbud365</cite>
-    </div>
-  </section>
-
-  <!-- BOK -->
-  <section class="bok" id="bok">
-    <div class="section-inner">
-      <div class="section-label">Fagboken</div>
-      <h2 class="section-title">Hvordan vinne anbud</h2>
-      <p class="section-desc">Taktikk, juss og kommersiell strategi. 253 sider med praktiske verktøy for hele anbudsprosessen.</p>
-      <div class="bok-grid">
-        <div>
-          <ul class="bok-features">
-            <li>Posisjonering før utlysning gjennom lovlig markedsdialog</li>
-            <li>Strategisk prising med opsjoner og taktisk «frontloading»</li>
-            <li>Det nye miljøkravet og 30-prosentregelen for klima og miljø</li>
-            <li>Kvalifikasjon og fallgruver – ESPD og dokumentasjon</li>
-            <li>Klageprosessen og innsyn i konkurrenters tilbud</li>
-            <li>Evalueringsmodeller forklart fra innsiden</li>
-          </ul>
-        </div>
-        <div class="bok-price-box fade-in">
-          <div class="bok-price">1 490,-</div>
-          <div class="bok-price-note">253 sider · Pluss porto</div>
-          <a href="#bestill" class="btn btn-gold" style="width:100%; justify-content:center;">Bestill boken →</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PÅMELDING KURS -->
-  <section class="signup" id="pamelding">
-    <div class="section-inner">
-      <div class="signup-box">
-        <h3>Meld deg på kurset</h3>
-        <div class="signup-price-tag">
-          <div class="price">4 900,-</div>
-          <div class="note">Inkl. kursbevis og kursmateriell · Ikke mva. på kurs</div>
-        </div>
-        <form id="kursForm" name="kurs-pamelding" method="POST" data-netlify="true" netlify-honeypot="bot-field">
-          <input type="hidden" name="form-name" value="kurs-pamelding">
-          <input type="hidden" name="antall-deltakere" id="hiddenCount" value="1">
-          <input type="hidden" name="total-pris" id="hiddenPrice" value="4 900,-">
-          <p style="display:none"><label>Ikke fyll ut: <input name="bot-field"></label></p>
-          <div class="form-row">
-            <div class="form-group">
-              <label>Kontaktperson – Navn <span class="required">*</span></label>
-              <input type="text" name="kontakt-navn" required placeholder="Fullt navn">
-            </div>
-            <div class="form-group">
-              <label>E-post <span class="required">*</span></label>
-              <input type="email" name="kontakt-epost" required placeholder="din@epost.no">
-            </div>
-          </div>
-          <div class="form-row">
-            <div class="form-group">
-              <label>Organisasjon / Arbeidsgiver <span class="required">*</span></label>
-              <input type="text" name="organisasjon" required placeholder="Bedriftsnavn">
-            </div>
-            <div class="form-group">
-              <label>Fakturareferanse <span class="required">*</span></label>
-              <input type="text" name="faktura-ref" required placeholder="PO-nr. eller referanse">
-            </div>
-          </div>
-          <div class="checkbox-row">
-            <input type="checkbox" id="contactIsParticipant" name="kontakt-er-deltaker" checked>
-            <label for="contactIsParticipant">Kontaktpersonen er selv deltaker</label>
-          </div>
-
-          <div id="extraParticipants" style="margin-top:16px;">
-            <h4 id="extraHeading" style="font-size:0.9rem; color:var(--navy); margin-bottom:12px; display:none;">Ekstra deltakere</h4>
-            <div id="participantsList"></div>
-            <button type="button" onclick="addParticipant()" style="background:none; border:1px dashed var(--gold); color:var(--gold); padding:10px 20px; border-radius:8px; cursor:pointer; font-weight:600; font-size:0.9rem; width:100%; margin-top:8px;">
-              + Legg til deltaker
-            </button>
-          </div>
-
-          <div style="display:flex; justify-content:space-between; align-items:center; margin-top:24px; padding:16px; background:var(--cream); border-radius:8px; margin-bottom:16px;">
-            <span style="font-size:0.9rem; color:var(--text-light);"><span id="participantCount">1</span> deltaker(e) · Kursmateriell og kursbevis inkludert</span>
-            <span style="font-family:'Playfair Display',serif; font-size:1.4rem; color:var(--navy); font-weight:700;" id="totalPrice">4 900,-</span>
-          </div>
-
-          <button type="submit" class="submit-btn">Send påmelding →</button>
-          <p class="form-note">Du mottar bekreftelse på e-post innen én virkedag. Faktura tilsendes.</p>
-        </form>
-        <div class="form-success" id="kursSuccess">
-          <div style="font-size:3rem; margin-bottom:16px;">✅</div>
-          <h3>Påmelding mottatt!</h3>
-          <p>Takk for din påmelding til Hvordan vinne anbud.<br>Du mottar bekreftelse og faktura på e-post innen én virkedag.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- BESTILL BOK -->
-  <section class="order" id="bestill">
-    <div class="section-inner">
-      <div class="order-box">
-        <h3>Bestill boken</h3>
-        <div class="order-price-tag">
-          <div class="price">1 490,-</div>
-          <div class="note">253 sider · Pluss porto</div>
-        </div>
-        <form id="bokForm" name="bok-bestilling" method="POST" data-netlify="true" netlify-honeypot="bot-field-bok">
-          <input type="hidden" name="form-name" value="bok-bestilling">
-          <p style="display:none"><label>Ikke fyll ut: <input name="bot-field-bok"></label></p>
-          <div class="form-row">
-            <div class="form-group">
-              <label>Navn <span class="required">*</span></label>
-              <input type="text" name="bok-navn" required placeholder="Fullt navn">
-            </div>
-            <div class="form-group">
-              <label>E-post <span class="required">*</span></label>
-              <input type="email" name="bok-epost" required placeholder="din@epost.no">
-            </div>
-          </div>
-          <div class="form-group">
-            <label>Leveringsadresse <span class="required">*</span></label>
-            <input type="text" name="bok-adresse" required placeholder="Gate, postnr. og sted">
-          </div>
-          <div class="form-row">
-            <div class="form-group">
-              <label>Organisasjon (valgfritt)</label>
-              <input type="text" name="bok-org" placeholder="Bedriftsnavn">
-            </div>
-            <div class="form-group">
-              <label>Antall eksemplarer</label>
-              <select name="bok-antall" id="bokAntall">
-                <option value="1">1 stk</option>
-                <option value="2">2 stk</option>
-                <option value="3">3 stk</option>
-                <option value="5">5 stk</option>
-                <option value="10">10 stk</option>
-              </select>
-            </div>
-          </div>
-          <button type="submit" class="submit-btn" style="background:var(--navy); color:var(--white);">Bestill boken →</button>
-          <p class="form-note">Du mottar ordrebekreftelse og faktura på e-post.</p>
-        </form>
-        <div class="order-success" id="bokSuccess">
-          <div style="font-size:3rem; margin-bottom:16px;">📚</div>
-          <h3>Bestilling mottatt!</h3>
-          <p>Takk for din bestilling. Du mottar bekreftelse og faktura på e-post.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FAQ -->
-  <section class="faq" id="faq">
-    <div class="section-inner">
-      <div class="section-label">Ofte stilte spørsmål</div>
-      <h2 class="section-title">Har du spørsmål?</h2>
-      <div class="faq-list">
-        <div class="faq-item">
-          <div class="faq-q">Hvem passer kurset for?</div>
-          <div class="faq-a"><div class="faq-a-inner">Kurset er laget for deg som selger varer eller tjenester til det offentlige – enten du er ny i markedet eller har erfaring men ønsker å vinne flere kontrakter. Typiske deltakere er daglige ledere, salgsansvarlige, anbudskoordinatorer og konsulenter.</div></div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-q">Trenger jeg forkunnskaper?</div>
-          <div class="faq-a"><div class="faq-a-inner">Nei. Kurset dekker alt fra grunnleggende forståelse av anbudsprosessen til avanserte strategier. Du får mest ut av det om du har deltatt i minst én anbudskonkurranse tidligere, men det er ikke et krav.</div></div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-q">Hva er forskjellen på kurset og boken?</div>
-          <div class="faq-a"><div class="faq-a-inner">Boken er et omfattende oppslagsverk på 253 sider som dekker hele anbudsprosessen i dybden. Kurset er et kompakt 3-timers live webinar der du får direkte dialog med Robert Myhre og kan stille spørsmål. Mange velger begge deler – boken som referanseverk og kurset for den interaktive læringen.</div></div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-q">Får jeg opptak av webinaret?</div>
-          <div class="faq-a"><div class="faq-a-inner">Kurset er en live-sesjon uten forhåndsinnspilte videoer. Kontakt oss på kurs@forumoa.no for spørsmål om tilgang etter kurset.</div></div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-q">Kan flere fra samme bedrift delta?</div>
-          <div class="faq-a"><div class="faq-a-inner">Ja, du kan legge til flere deltakere i påmeldingsskjemaet. Alle får eget kursbevis og kursmateriell. Prisen er kr 4 900,- per deltaker.</div></div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-q">Hvordan betaler jeg?</div>
-          <div class="faq-a"><div class="faq-a-inner">Faktura tilsendes etter påmelding/bestilling. Det er ikke mva. på kurs.</div></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA BANNER -->
-  <section class="cta-banner">
-    <h2>Klar for å vinne flere anbud?</h2>
-    <p>Investér i din bedrifts konkurransekraft. Neste kurs: 2. juni 2026.</p>
-    <div class="cta-buttons">
-      <a href="#pamelding" class="btn btn-gold">Meld deg på kurset – 4 900,- →</a>
-      <a href="#bestill" class="btn btn-outline">Bestill boken – 1 490,- →</a>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer>
-    <p>Forum for offentlige anskaffelser AS · Org.nr. 933 432 394</p>
-    <p style="margin-top:8px;"><a href="mailto:kurs@forumoa.no">kurs@forumoa.no</a> · <a href="tel:+4792054415">920 54 415</a></p>
-    <p style="margin-top:16px; font-size:0.75rem;">© 2026 nyttanbud.no</p>
-  </footer>
-
-  <!-- STICKY BAR -->
-  <div class="sticky-bar" id="stickyBar">
-    <div class="sticky-bar-inner">
-      <p>Neste kurs: <strong>2. juni 2026</strong> · <span class="price">Kr 4 900,-</span></p>
-      <a href="#pamelding" class="btn btn-gold" style="padding:10px 24px; font-size:0.9rem;">Meld deg på →</a>
     </div>
   </div>
+</section>
 
-  <script>
-    // ── Participant logic ──
-    const pricePerPerson = 4900;
-    let extraCount = 0;
+<!-- TRUST BAR -->
+<section class="trust-bar">
+  <div class="trust-inner">
+    <div class="trust-item"><span class="trust-icon">&#9989;</span> Gratis &mdash; ingen skjulte kostnader</div>
+    <div class="trust-item"><span class="trust-icon">&#128274;</span> Ingen binding eller forpliktelse</div>
+    <div class="trust-item"><span class="trust-icon">&#127891;</span> Fra Norges ledende anbudsfagmilj&oslash;</div>
+  </div>
+</section>
 
-    function getTotalParticipants() {
-      const contactChecked = document.getElementById('contactIsParticipant').checked;
-      const extras = document.querySelectorAll('.extra-participant').length;
-      return (contactChecked ? 1 : 0) + extras;
-    }
+<!-- PROBLEM -->
+<section class="problem">
+  <h2>Problemet med Doffin</h2>
+  <p>Doffin.no er den offisielle portalen for offentlige anskaffelser i Norge. Alle offentlige oppdragsgivere er p&aring;lagt &aring; publisere anbud her &mdash; det betyr tusenvis av muligheter for din bedrift.</p>
+  <p>Men Doffin har et problem: det er vanskelig &aring; holde oversikt. S&oslash;kefunksjonen er begrenset, det finnes ingen varslinger, og du m&aring; manuelt sjekke portalen hver dag for &aring; ikke g&aring; glipp av noe. Det koster tid &mdash; og det koster oppdrag.</p>
+</section>
 
-    function updateSummary() {
-      const total = getTotalParticipants();
-      document.getElementById('participantCount').textContent = total;
-      const price = total * pricePerPerson;
-      document.getElementById('totalPrice').textContent = price.toLocaleString('nb-NO') + ',-';
-      document.getElementById('extraHeading').style.display =
-        document.querySelectorAll('.extra-participant').length > 0 ? '' : 'none';
-    }
+<!-- FEATURES -->
+<section class="features">
+  <div class="features-inner">
+    <h2>Slik hjelper vi deg</h2>
+    <p class="subtitle">Anbudsradar overv&aring;ker Doffin for deg &mdash; automatisk, hver dag.</p>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">&#128236;</div>
+        <h3>Daglige varsler p&aring; e-post</h3>
+        <p>Hver morgen f&aring;r du en oversikt over nye anbud som matcher dine kriterier. Rett i innboksen &mdash; ingen manuell sjekking.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">&#127919;</div>
+        <h3>Filtrert p&aring; dine behov</h3>
+        <p>Sett opp varsler basert p&aring; s&oslash;keord, CPV-koder eller spesifikke oppdragsgivere. Du bestemmer hva som er relevant for deg.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">&#9889;</div>
+        <h3>Raskere enn konkurrentene</h3>
+        <p>Nye kunngjøringer fanges opp s&aring; fort de publiseres. Du er alltid blant de f&oslash;rste som ser et nytt anbud.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-    function addParticipant() {
-      extraCount++;
-      const div = document.createElement('div');
-      div.className = 'extra-participant';
-      div.style.cssText = 'background:var(--cream);padding:16px;border-radius:8px;margin-bottom:8px;';
-      div.innerHTML = `
-        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
-          <strong style="font-size:0.85rem;color:var(--navy);">Deltaker ${extraCount}</strong>
-          <button type="button" onclick="this.closest('.extra-participant').remove();updateSummary();" style="background:none;border:none;color:var(--red);cursor:pointer;font-size:0.9rem;">✕ Fjern</button>
-        </div>
-        <div class="form-row">
-          <div class="form-group" style="margin-bottom:0">
-            <input type="text" placeholder="Fullt navn" required>
-          </div>
-          <div class="form-group" style="margin-bottom:0">
-            <input type="email" placeholder="E-postadresse" required>
-          </div>
-        </div>`;
-      document.getElementById('participantsList').appendChild(div);
-      updateSummary();
-    }
+<!-- HOW IT WORKS -->
+<section class="how">
+  <h2>Kom i gang p&aring; 2 minutter</h2>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-text">
+        <h3>Registrer deg gratis</h3>
+        <p>Oppgi bedriftsnavn og e-postadresse. Det tar under ett minutt.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-text">
+        <h3>Velg dine filtre</h3>
+        <p>Legg inn s&oslash;keord som beskriver det du leverer, velg oppdragsgivere du vil f&oslash;lge, eller velg CPV-koder for din bransje.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-text">
+        <h3>Motta daglige varsler</h3>
+        <p>Fra neste morgen f&aring;r du en e-post med alle nye, relevante anbud fra Doffin. Klikk deg rett inn p&aring; kunngj&oslash;ringen.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-    document.getElementById('contactIsParticipant').addEventListener('change', updateSummary);
+<!-- COMPARISON -->
+<section class="comparison">
+  <div class="comparison-inner">
+    <h2>Doffin manuelt vs. Anbudsradar</h2>
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th></th>
+          <th>Doffin manuelt</th>
+          <th>Anbudsradar</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Daglige e-postvarsler</td>
+          <td class="cross">Nei</td>
+          <td class="check">Ja</td>
+        </tr>
+        <tr>
+          <td>Filtrering p&aring; s&oslash;keord</td>
+          <td>Begrenset</td>
+          <td class="check">Ja</td>
+        </tr>
+        <tr>
+          <td>Filtrering p&aring; CPV-koder</td>
+          <td>Ja</td>
+          <td class="check">Ja</td>
+        </tr>
+        <tr>
+          <td>F&oslash;lg oppdragsgivere automatisk</td>
+          <td class="cross">Nei (kun manuelt s&oslash;k)</td>
+          <td class="check">Ja</td>
+        </tr>
+        <tr>
+          <td>Pris</td>
+          <td>Gratis (men tidkrevende)</td>
+          <td class="check">Gratis</td>
+        </tr>
+        <tr>
+          <td>Tidsbruk per dag</td>
+          <td>15&ndash;30 minutter</td>
+          <td class="check">Under 1 minutt</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
 
-    // ── Form submissions (Netlify Forms via AJAX) ──
-    document.getElementById('kursForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      if (getTotalParticipants() === 0) {
-        alert('Legg til minst én deltaker.');
-        return;
+<!-- CREDIBILITY — Book + FOA -->
+<section class="credibility">
+  <div class="credibility-inner">
+    <img src="https://anbudsradar.no/bok-cover.jpg" alt="Hvordan vinne anbud &mdash; Robert Myhre" loading="lazy">
+    <div>
+      <h2>Fra ekspertene p&aring; offentlige anbud</h2>
+      <p>Anbudsradar er utviklet av Forum for offentlige anskaffelser (FOA) &mdash; Norges ledende fagmilj&oslash; innen offentlige anskaffelser. FOA tilbyr kurs, sertifisering og r&aring;dgivning for b&aring;de innkj&oslash;pere og leverand&oslash;rer.</p>
+      <p>Robert Myhre er forfatter av fagboken &laquo;Hvordan vinne anbud&raquo; og har hjulpet hundrevis av bedrifter med &aring; vinne offentlige kontrakter.</p>
+      <div class="author">Robert Myhre &mdash; Forum for offentlige anskaffelser</div>
+      <a href="https://forumoa.no" class="cred-link" target="_blank" rel="noopener">Les mer om FOA &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq">
+  <h2>Ofte stilte sp&oslash;rsm&aring;l</h2>
+
+  <div class="faq-item">
+    <div class="faq-q">Hva er Doffin?</div>
+    <div class="faq-a">Doffin er den nasjonale kunngj&oslash;ringsdatabasen for offentlige anskaffelser i Norge. Alle statlige, kommunale og fylkeskommunale virksomheter er p&aring;lagt &aring; publisere anbud over terskelverdiene her. Det er alts&aring; her du finner mulighetene for &aring; levere varer og tjenester til det offentlige.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q">Er Anbudsradar virkelig gratis?</div>
+    <div class="faq-a">Ja. Grunnleggende anbudsvarsler er helt gratis, uten tidsbegrensning. Du kan sette opp s&oslash;keord, CPV-koder og oppdragsgivere og motta daglige e-poster uten &aring; betale noe.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q">Hva er CPV-koder?</div>
+    <div class="faq-a">CPV (Common Procurement Vocabulary) er et europeisk klassifiseringssystem for offentlige innkj&oslash;p. Hver kode beskriver en type vare eller tjeneste &mdash; for eksempel 72000000 for IT-tjenester eller 45000000 for byggearbeid. Ved &aring; bruke CPV-koder i filtrene dine sikrer du at du f&aring;r varsler for akkurat din bransje.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q">Hvor raskt f&aring;r jeg varsel om nye anbud?</div>
+    <div class="faq-a">Anbudsradar sjekker Doffin flere ganger daglig. Du f&aring;r en samlet e-post hver morgen med alle nye kunngj&oslash;ringer som matcher dine kriterier. Slik er du alltid oppdatert uten &aring; bruke tid p&aring; manuelt s&oslash;k.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q">Kan jeg endre filtrene mine senere?</div>
+    <div class="faq-a">Ja. Du kan logge inn og justere s&oslash;keord, CPV-koder og oppdragsgivere n&aring;r som helst. Endringene gjelder fra neste varsel.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q">Hvem st&aring;r bak Anbudsradar?</div>
+    <div class="faq-a">Anbudsradar er utviklet av Forum for offentlige anskaffelser (forumoa.no), Norges ledende fagmilj&oslash; innen offentlige anskaffelser. FOA tilbyr kurs, sertifisering, fagb&oslash;ker og r&aring;dgivning &mdash; og har hjulpet leverand&oslash;rer med &aring; vinne offentlige kontrakter i over ti &aring;r.</div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <h2>Klar til &aring; slippe &aring; sjekke Doffin manuelt?</h2>
+  <p>Registrer deg gratis og f&aring; relevante anbud rett i innboksen fra i morgen.</p>
+  <a href="https://anbudsradar.no/#registrer" class="cta-btn">Registrer deg gratis p&aring; Anbudsradar</a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-left">
+      <div class="footer-brand">
+        <div class="foa-logo">foa</div>
+        <span>Forum for offentlige anskaffelser</span>
+      </div>
+      <p>Doffinhjelp.no er en informasjonsside om offentlige anbud. Varslingstjenesten leveres av <a href="https://anbudsradar.no">Anbudsradar</a>, en gratis tjeneste fra <a href="https://forumoa.no">Forum for offentlige anskaffelser</a>.</p>
+    </div>
+    <div class="footer-right">
+      <ul class="footer-links">
+        <li><a href="https://anbudsradar.no">Anbudsradar.no</a></li>
+        <li><a href="https://forumoa.no">Forumoa.no</a></li>
+        <li><a href="https://forumoa.no/kurs">Kurs i offentlige anbud</a></li>
+        <li><a href="mailto:kurs@forumoa.no">kurs@forumoa.no</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<!-- FAQ toggle -->
+<script>
+document.querySelectorAll('.faq-q').forEach(q => {
+  q.addEventListener('click', () => {
+    q.parentElement.classList.toggle('open');
+  });
+});
+</script>
+
+<!-- Structured data for SEO -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Doffin Hjelp — Automatiske anbudsvarsler fra Doffin",
+  "description": "Få daglige varsler om relevante offentlige anbud fra Doffin, filtrert på dine søkeord. Helt gratis.",
+  "url": "https://doffinhjelp.no/",
+  "provider": {
+    "@type": "Organization",
+    "name": "Forum for offentlige anskaffelser",
+    "url": "https://forumoa.no"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Hva er Doffin?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Doffin er den nasjonale kunngjøringsdatabasen for offentlige anskaffelser i Norge. Alle statlige, kommunale og fylkeskommunale virksomheter er pålagt å publisere anbud over terskelverdiene her."
       }
-      // Update hidden fields before submit
-      document.getElementById('hiddenCount').value = getTotalParticipants();
-      document.getElementById('hiddenPrice').value = document.getElementById('totalPrice').textContent;
+    },
+    {
+      "@type": "Question",
+      "name": "Er Anbudsradar virkelig gratis?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ja. Grunnleggende anbudsvarsler er helt gratis, uten tidsbegrensning."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Hva er CPV-koder?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "CPV (Common Procurement Vocabulary) er et europeisk klassifiseringssystem for offentlige innkjøp. Hver kode beskriver en type vare eller tjeneste."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Hvem står bak Anbudsradar?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Anbudsradar er utviklet av Forum for offentlige anskaffelser (FOA), Norges ledende fagmiljø innen offentlige anskaffelser."
+      }
+    }
+  ]
+}
+</script>
 
-      const form = this;
-      const formData = new FormData(form);
-      const submitBtn = form.querySelector('.submit-btn');
-      submitBtn.textContent = 'Sender...';
-      submitBtn.disabled = true;
-
-      fetch('/', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams(formData).toString()
-      })
-      .then(response => {
-        if (response.ok) {
-          form.style.display = 'none';
-          document.getElementById('kursSuccess').classList.add('show');
-        } else {
-          throw new Error('Nettverksfeil');
-        }
-      })
-      .catch(error => {
-        submitBtn.textContent = 'Send påmelding →';
-        submitBtn.disabled = false;
-        alert('Noe gikk galt. Prøv igjen eller kontakt oss på kurs@forumoa.no');
-      });
-    });
-
-    document.getElementById('bokForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      const form = this;
-      const formData = new FormData(form);
-      const submitBtn = form.querySelector('.submit-btn');
-      submitBtn.textContent = 'Sender...';
-      submitBtn.disabled = true;
-
-      fetch('/', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams(formData).toString()
-      })
-      .then(response => {
-        if (response.ok) {
-          form.style.display = 'none';
-          document.getElementById('bokSuccess').classList.add('show');
-        } else {
-          throw new Error('Nettverksfeil');
-        }
-      })
-      .catch(error => {
-        submitBtn.textContent = 'Bestill boken →';
-        submitBtn.disabled = false;
-        alert('Noe gikk galt. Prøv igjen eller kontakt oss på kurs@forumoa.no');
-      });
-    });
-
-    // ── FAQ toggle ──
-    document.querySelectorAll('.faq-q').forEach(q => {
-      q.addEventListener('click', () => {
-        q.parentElement.classList.toggle('open');
-      });
-    });
-
-    // ── Fade-in on scroll ──
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) entry.target.classList.add('visible');
-      });
-    }, { threshold: 0.1 });
-    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-
-    // ── Sticky bar ──
-    const hero = document.querySelector('.hero');
-    const stickyBar = document.getElementById('stickyBar');
-    const stickyObs = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        stickyBar.classList.toggle('show', !entry.isIntersecting);
-      });
-    });
-    stickyObs.observe(hero);
-
-    // ── Hamburger ──
-    document.querySelector('.hamburger').addEventListener('click', () => {
-      document.querySelector('.nav-links').classList.toggle('open');
-    });
-    document.querySelectorAll('.nav-links a').forEach(a => {
-      a.addEventListener('click', () => document.querySelector('.nav-links').classList.remove('open'));
-    });
-  </script>
 </body>
 </html>
